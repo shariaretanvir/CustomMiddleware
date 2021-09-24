@@ -30,6 +30,7 @@ namespace CoreMiddleware
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<FactoryBasedCustomMiddleware>();
+            services.UseCustomCors();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -46,10 +47,11 @@ namespace CoreMiddleware
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CoreMiddleware v1"));
             }
-
+            //app.UseHsts();
             app.UseHttpsRedirection();
-
+            //app.UseStaticFiles();
             app.UseRouting();
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 
