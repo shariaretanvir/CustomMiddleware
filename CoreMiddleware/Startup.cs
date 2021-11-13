@@ -63,6 +63,7 @@ namespace CoreMiddleware
                 await next.Invoke();
                 await contect.Response.WriteAsync("Use middleware 1 end\n");
             });
+            app.UseHeaderExtension();
             app.UseCustomMiddleware();
             app.UseFactoryBasedCustomMiddleware();
             //app.Map("/getdata", builder =>
