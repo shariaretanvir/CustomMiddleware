@@ -14,5 +14,8 @@ namespace CoreMiddleware.Extensions
 
         public static IApplicationBuilder UseFactoryBasedCustomMiddleware(this IApplicationBuilder app)
             => app.UseMiddleware<FactoryBasedCustomMiddleware>();
+
+        public static IApplicationBuilder UseCustomException(this IApplicationBuilder app) =>
+            app.UseMiddleware<ExceptionMiddleware>();
     }
 }

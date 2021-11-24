@@ -48,6 +48,7 @@ namespace CoreMiddleware
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CoreMiddleware v1"));
             }
             //app.UseHsts();
+            app.UseCustomException();
             app.UseHttpsRedirection();
             //app.UseStaticFiles();
             app.UseRouting();
